@@ -11,9 +11,11 @@ public class PromptUser {
         int userInput;
         String userDecision = null;
         int counter = 0; // this is going to be used to calculate the amount of items our user chooses
-
+        String fruitChoice;
+        double fruitPrice;
 
         ArrayList<Fruit> fruitList = new ArrayList<>();
+        ArrayList<ShoppingCart> shoppingCart = new ArrayList<>();
         Products fruit = new Products(fruitList);
         int j = 1;  //counter
         for (Fruit i : fruit.listFruit()) {
@@ -22,36 +24,52 @@ public class PromptUser {
         }
 
 
-
         //for (int j = 0; j < ArrayList.length; j++){
         do {
             System.out.println("Please choose your fruit: ");
             userInput = scan.nextInt();
             for (int i = 0; i < fruit.listFruit().size(); i++) {
+
                 if (userInput == i) {
-                    System.out.println(fruit.listFruit().get(i - 1));
-                    System.out.println("How many " + fruit.listFruit().get(i - 1) + "'s would you like to add to your" +
+                    fruitChoice = fruit.listFruit().get(i - 1).getName();
+                    fruitPrice = fruit.listFruit().get(i - 1).getPrice();
+                    System.out.println(fruitChoice + " " + fruitPrice);
+                    System.out.println("How many " + fruitChoice + "'s would you like to add to your" +
                             " cart? ");
                     int quantity = scan.nextInt();
                     if (quantity > 1) {
                         counter += quantity;
-                        System.out.println("you added " + counter + " " + fruit.listFruit().get(i - 1) + "'s.");
-                    } else if (quantity == 1) {
-                        counter += quantity;
-                        System.out.println("you added " + counter + " " + fruit.listFruit().get(i - 1));
+                        //loop reference i instead of 0
+                        //System.out.println("you added " + counter + " " + fruit.listFruit().get(i-1).getPrice());
+
+
+                        shoppingCart.add(new ShoppingCart());
+                        shoppingCart.get(0).setFruitType(fruitChoice);
+                        shoppingCart.get(0).setQuantity(counter);
+                        shoppingCart.get(0).setPrice(fruitPrice, counter);
+                        System.out.println(shoppingCart.get(0));
+                        scan.nextLine();
+                        System.out.println("Would you like to add more fruit or check out? more/checkout");
+                        userDecision = scan.nextLine();
+
+                        if (userDecision.equalsIgnoreCase("checkout")) {
+                            System.out.println("Goodbye");
+                        } else if (quantity == 1) {
+                            counter += quantity;
+                            System.out.println("you added " + counter + " " + fruit.listFruit().get(i - 1).getPrice());
+                        }
                     }
                 }
             }
-            scan.nextLine();
-            System.out.println("Would you like to add more fruit or check out? more/checkout");
-            userDecision = scan.nextLine();
-            if (userDecision.equalsIgnoreCase("checkout")) {
-                System.out.println("Goodbye");
-            }
         } while (userDecision.equalsIgnoreCase("more"));
-    }
+
 
         //blank arrayList.length add for counter + fruit[i-1]
         //[j].add
+        //public void PromptUser(ArrayList<Fruit> fruitList, int j)
+        // ArrayList<Fruit> FruitTotal = new ArrayList<Fruit>();
+
+
+    }
 }
 
