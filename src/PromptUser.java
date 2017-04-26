@@ -10,7 +10,7 @@ public class PromptUser {
         Scanner scan = new Scanner(System.in);
         int userInput;
         String userDecision = null;
-        int counter = 0; // this is going to be used to calculate the amount of items our user chooses
+        int counter = 0;
         String fruitChoice;
         double fruitPrice;
 
@@ -24,7 +24,7 @@ public class PromptUser {
         }
 
 
-        //for (int j = 0; j < ArrayList.length; j++){
+
         do {
             System.out.println("Please choose your fruit: ");
             userInput = scan.nextInt();
@@ -39,10 +39,10 @@ public class PromptUser {
                     int quantity = scan.nextInt();
                     if (quantity > 1) {
                         counter += quantity;
-                        //loop reference i instead of 0
-                        //System.out.println("you added " + counter + " " + fruit.listFruit().get(i-1).getPrice());
+                        /*there needs to be a loop here.  In order to change the index from 0 to i, there needs to be a loop that will continue to store
+                        information.  then we ask the questions if we want continue or checkout.  Please call me 586-489-7310, if you need clarification.
 
-
+                        */
                         shoppingCart.add(new ShoppingCart());
                         shoppingCart.get(0).setFruitType(fruitChoice);
                         shoppingCart.get(0).setQuantity(counter);
@@ -63,11 +63,6 @@ public class PromptUser {
             }
         } while (userDecision.equalsIgnoreCase("more"));
 
-
-        //blank arrayList.length add for counter + fruit[i-1]
-        //[j].add
-        //public void PromptUser(ArrayList<Fruit> fruitList, int j)
-        // ArrayList<Fruit> FruitTotal = new ArrayList<Fruit>();
 
 
     }
