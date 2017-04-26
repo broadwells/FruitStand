@@ -7,6 +7,7 @@ public class StandApp {
 
         System.out.println("Hello World!");
         System.out.println("Group 1 is awesome");
+
     }
 
 
