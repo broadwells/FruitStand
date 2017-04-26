@@ -14,12 +14,6 @@ public class StandApp {
 
         PromptUser.FruitSelection();
 
-<<<<<<< HEAD
-        System.out.println("Hello World!");
-        System.out.println("Group 1 is awesome");
-=======
->>>>>>> 75f9aa36da420d858a15731b7023165bb193ab34
-
 
     }
 
