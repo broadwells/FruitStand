@@ -5,12 +5,17 @@ import java.util.ArrayList;
  */
 public class Products {
 
-    public static void main(String[] args) {
 
 
         /* List of 14 Fruit ready to sell in Fruit Stand
          */
         ArrayList<Fruit> fruitList = new ArrayList<Fruit>();
+
+    public Products(ArrayList<Fruit> fruitList) {
+        this.fruitList = fruitList;
+    }
+
+    public ArrayList<Fruit> listFruit(){
         fruitList.add(new Fruit("Apple: Macintosh, 5lb bag", 4019,"Produce", "Michigan grown, red and green skinned apples. Great for baking and eating.", 3.49)); // Fruit index 0
         fruitList.add(new Fruit("Apple: Granny Smith, 4lb bag", 4018, "Produce", "Michigan grown tart green apple. Great for carmel apples and eating.", 3.49)); // index 1
         fruitList.add(new Fruit("Avocados: Haas, 4ct bag", 4225, "Produce","Large Haas avocados perfect for salads and guacamole.",3.99 )); // index 2
@@ -26,5 +31,6 @@ public class Products {
         fruitList.add(new Fruit("Pears: Bartlett, 1lb bag", 4412, "Produce", "Savory juicy sweetness. Great eaten with cheese or sliced in for salads.", 1.29)); // index 12
         fruitList.add(new Fruit("Watermelon: Seeded, whole 8lb", 4031, "Produce", "Best-tasting watermelon available. Sweet and juicy snack melon.", 6.99)); // index 13
 
+        return fruitList;
     }
 }
