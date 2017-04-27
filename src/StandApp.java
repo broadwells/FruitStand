@@ -7,12 +7,16 @@ public class StandApp {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String fileString = "FruitInventory.txt";
+        String userDecision = "more";
 
         FruitInventory.CreateFile(fileString);
         FruitInventory.ReadFile();
         //FruitInventory.WriteFile(scan);
+        while (userDecision.equalsIgnoreCase("more")) {
+            PromptUser.FruitSelection(scan);
 
-        PromptUser.FruitSelection();
+
+        }
 
 
     }

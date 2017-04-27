@@ -11,9 +11,10 @@ public class Products {
          */
         ArrayList<Fruit> fruitList = new ArrayList<Fruit>();
 
-    public Products(ArrayList<Fruit> fruitList) {
-        this.fruitList = fruitList;
-    }
+   public Products(ArrayList<Fruit> fruitList){
+
+   }
+   //{this.fruitList = fruitList;}
 
     public ArrayList<Fruit> listFruit(){
         fruitList.add(new Fruit("Apple: Macintosh, 5lb bag", 4019,"Produce", "Michigan grown, red and green skinned apples. Great for baking and eating.", 3.49)); // Fruit index 0
@@ -33,4 +34,6 @@ public class Products {
 
         return fruitList;
     }
+
+
 }

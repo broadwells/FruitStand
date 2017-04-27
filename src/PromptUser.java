@@ -6,65 +6,51 @@ import java.util.Scanner;
  */
 public class PromptUser {
 
-    public static void FruitSelection() {
-        Scanner scan = new Scanner(System.in);
+
+    public static void FruitSelection(Scanner scan) {
         int userInput;
-        String userDecision = null;
         int counter = 0;
-        String fruitChoice;
         double fruitPrice;
 
-        ArrayList<Fruit> fruitList = new ArrayList<>();
-        ArrayList<ShoppingCart> shoppingCart = new ArrayList<>();
+
+        ArrayList<Fruit> fruitList = new ArrayList<>();//calling ArrayList from products
+        ArrayList<CartItem> shoppingCart = new ArrayList<>();//storing cart items from user data
         Products fruit = new Products(fruitList);
         int j = 1;  //counter
+
         for (Fruit i : fruit.listFruit()) {
             System.out.println(j + ". " + i);
             j++;
+
         }
-
-
-
+        String userDecision = null;
+        System.out.println("\nWelcome to Detroit Rock Fruit Stand!");
         do {
-            System.out.println("Please choose your fruit: ");
+
+            System.out.println("\nPlease choose your fruit: ");
             userInput = scan.nextInt();
-            for (int i = 0; i < fruit.listFruit().size(); i++) {
+            int i = 0;
+            Fruit fruitChoice = fruit.listFruit().get(i);
+            for (i = 0; i < fruit.listFruit().size(); i++) {//for loop to gather data, calculation and storage in shoppingCart ArrayList
 
-                if (userInput == i) {
-                    fruitChoice = fruit.listFruit().get(i - 1).getName();
-                    fruitPrice = fruit.listFruit().get(i - 1).getPrice();
-                    System.out.println(fruitChoice + " " + fruitPrice);
-                    System.out.println("How many " + fruitChoice + "'s would you like to add to your" +
-                            " cart? ");
-                    int quantity = scan.nextInt();
-                    if (quantity > 1) {
-                        counter += quantity;
-                        /*there needs to be a loop here.  In order to change the index from 0 to i, there needs to be a loop that will continue to store
-                        information.  then we ask the questions if we want continue or checkout.  Please call me 586-489-7310, if you need clarification.
+                System.out.println("How many " + fruitChoice.getName() + "'s would you like to add to your" + " cart? ");
+                int quantity = scan.nextInt();
+                scan.nextLine();
 
-                        */
-                        shoppingCart.add(new ShoppingCart());
-                        shoppingCart.get(0).setFruitType(fruitChoice);
-                        shoppingCart.get(0).setQuantity(counter);
-                        shoppingCart.get(0).setPrice(fruitPrice, counter);
-                        System.out.println(shoppingCart.get(0));
-                        scan.nextLine();
-                        System.out.println("Would you like to add more fruit or check out? more/checkout");
-                        userDecision = scan.nextLine();
+                CartItem cartItem = new CartItem(fruitChoice.getName(), quantity, fruitChoice.getPrice());//storing data in shoppingCart ArrayList
+                System.out.println(cartItem);
 
-                        if (userDecision.equalsIgnoreCase("checkout")) {
-                            System.out.println("Goodbye");
-                        } else if (quantity == 1) {
-                            counter += quantity;
-                            System.out.println("you added " + counter + " " + fruit.listFruit().get(i - 1).getPrice());
-                        }
-                    }
-                }
+                shoppingCart.add(cartItem);
+
+                System.out.println("Would you like to add more fruit or check out? more/checkout");
+                userDecision = scan.nextLine();
+                if (userDecision.equalsIgnoreCase("checkout"))
+                    System.out.println("goodbye");//This is where Stephanie takes over
+
+                break;
+
             }
+
         } while (userDecision.equalsIgnoreCase("more"));
-
-
-
     }
 }
-

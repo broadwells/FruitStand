@@ -2,6 +2,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -58,6 +59,15 @@ public class FruitInventory {
             e.printStackTrace();
         }
 
+    }
+
+    public static void printFruitList(ArrayList <Fruit> listFruit){
+        int j = 1;  //counter
+
+        for (Fruit i : listFruit) {
+            System.out.println(j + ". " + i);
+            j++;
+        }
     }
 
 }

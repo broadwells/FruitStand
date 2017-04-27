@@ -1,7 +1,7 @@
 /**
  * Created by MichaelRiley on 4/26/17.
  */
-public class ShoppingCart {
+public class CartItem {
 
     private String fruitType;
 
@@ -12,15 +12,15 @@ public class ShoppingCart {
     private double price;
 
 
-//    public ShoppingCart(String fruitType, int quantity, double price) {
-//        this.fruitType = fruitType;
-//        this.quantity = quantity;
-//        this.totalPrice = totalPrice;
-//        this.price = price;
-//
-////    }
+   public CartItem(String fruitType, int quantity, double price) {
+      this.fruitType = fruitType;
+      this.quantity = quantity;
+      this.totalPrice = totalPrice;
+      this.price = price;
 
-//    public ShoppingCart(String fruitType, int quantity, double total) {
+  }
+
+//    public CartItem(String fruitType, int quantity, double total) {
 //        this.fruitType = fruitType;
 //        this.quantity = quantity;
 //        this.total = total;
@@ -66,6 +66,6 @@ public class ShoppingCart {
 
     @Override
     public String toString() {
-        return "you added " + quantity + " " + fruitType + "(s)" + " = " + getPrice(quantity,price);
+        return "You added " + quantity + " " + fruitType + "(s)" + " = " + getPrice(quantity,price);
     }
 }
