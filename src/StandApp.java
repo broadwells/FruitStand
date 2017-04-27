@@ -35,7 +35,7 @@ public class StandApp {
         FruitInventory.CreateFile(fileString);
         FruitInventory.ReadFile();
         //FruitInventory.WriteFile(scan);
-        while (userDecision.equalsIgnoreCase("more")) {
+
             PromptUser.FruitSelection(scan);
         }
 
@@ -44,4 +44,4 @@ public class StandApp {
         //PromptUser.FruitSelection();
         
     }
-}
+
