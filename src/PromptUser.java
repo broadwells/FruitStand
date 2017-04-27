@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 /**
- * Created by MichaelRiley on 4/25/17.
+ * Created by Michael Riley on 4/25/17.
  */
 public class PromptUser {
 
@@ -18,6 +19,7 @@ public class PromptUser {
         Products fruit = new Products(fruitList);
         int j = 1;  //counter
 
+        // This loop prints a full list of products with index ArrayList number for Shopper to view and select
         for (Fruit i : fruit.listFruit()) {
             System.out.println(j + ". " + i);
             j++;

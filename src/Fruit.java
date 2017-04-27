@@ -1,15 +1,15 @@
 /**
- * Created by Pro on 4/25/17.
+ * Created by Lydia Latocki on 4/25/17.
  */
 public class Fruit {
-    //instance variables (instead of static variables)
+    //instance variables (instead of static variables), Fruit arrayList is populated in Products.java class.
     private String name;
     private int sku;
     private String category;
     private String descript;
     private double price;
 
-
+    // getters and setters of ArrayList<Fruit> fruitList
     public String getName() {
         return name;
     }

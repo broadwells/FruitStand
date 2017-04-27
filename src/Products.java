@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 
 /**
- * Created by Pro on 4/25/17.
+ * Created by Lydia Latocki on 4/25/17.
  */
 public class Products {
 
-
-
-        /* List of 14 Fruit ready to sell in Fruit Stand
+        /* List of 14 Fruit ready to sell in Fruit Stand as defined in the Fruit.java class:
+        parameter sequence: String name, int sku, String category, String descript, double price
          */
         ArrayList<Fruit> fruitList = new ArrayList<Fruit>();
 
-   public Products(ArrayList<Fruit> fruitList){
 
-   }
-   //{this.fruitList = fruitList;}
+    public Products(ArrayList<Fruit> fruitList) {
+        // this.fruitList = fruitList;  // used to modify original inventory list
+    }
 
+    // to call individual parameter of an index, call array index-then parameter name(). separate calls with space+space, and additional index-then parameter name().
     public ArrayList<Fruit> listFruit(){
         fruitList.add(new Fruit("Apple: Macintosh, 5lb bag", 4019,"Produce", "Michigan grown, red and green skinned apples. Great for baking and eating.", 3.49)); // Fruit index 0
         fruitList.add(new Fruit("Apple: Granny Smith, 4lb bag", 4018, "Produce", "Michigan grown tart green apple. Great for carmel apples and eating.", 3.49)); // index 1
