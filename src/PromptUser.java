@@ -10,55 +10,41 @@ public class PromptUser {
 
     public static void FruitSelection(Scanner scan) {
         int userInput;
-        int counter = 0;
-        double fruitPrice;
+        ArrayList<CartItem> shoppingCart = new ArrayList<>();   //storing cart items from user data
+        Products fruit = new Products();    //calling ArrayList from products
 
-
-        ArrayList<Fruit> fruitList = new ArrayList<>();//calling ArrayList from products
-        ArrayList<CartItem> shoppingCart = new ArrayList<>();//storing cart items from user data
-        Products fruit = new Products();
         int j = 1;  //counter
-
-
         // This loop prints a full list of products with index ArrayList number for Shopper to view and select
-
-        j = 1;
-
         for (Fruit i : fruit.listFruit()) {
             System.out.println(j + ". " + i);
             j++;
-
         }
 
-        String userDecision = null;
-        System.out.println("\nWelcome to Detroit Rock Fruit Stand!");
+        String userDecision;
+
         do {
-
-
             System.out.println("\nPlease choose your fruit: ");
             userInput = scan.nextInt();
-            int i = 0;
-            Fruit fruitChoice = fruit.listFruit().get(userInput-1);
-            for (i = 0; i < fruit.listFruit().size(); i++) {//for loop to gather data, calculation and storage in shoppingCart ArrayList
+            //Validator.getInt(scan, userInput, 0, 13);
+            Fruit fruitChoice = fruit.listFruit().get(userInput - 1);
+            System.out.println("How many " + fruitChoice.getName() + "(s) would you like to add to your cart? ");
+            int quantity = scan.nextInt();
 
-                  System.out.println("How many " + fruitChoice.getName() + "'s would you like to add to your" + " cart? ");
-                  int quantity = scan.nextInt();
-                  scan.nextLine();
-
-                CartItem cartItem = new CartItem(fruitChoice.getName(), quantity, fruitChoice.getPrice());//storing data in shoppingCart ArrayList
-                System.out.println(cartItem);
-
-                shoppingCart.add(cartItem);
-
-                System.out.println("Would you like to add more fruit or check out? more/checkout");
-                userDecision = scan.nextLine();
-                if (userDecision.equalsIgnoreCase("checkout")){
-                    System.out.println("goodbye");//This is where Stephanie takes over
-                }
-
-                break;
+            CartItem cartItem = new CartItem(fruitChoice.getName(), quantity, (fruitChoice.getPrice() * quantity));
+            //storing data in shoppingCart ArrayList
+            shoppingCart.add(cartItem);
+            System.out.println("You added: " + cartItem.toString());
+            scan.nextLine();
+            System.out.println("Would you like to add more fruit or check out? more/checkout");
+            userDecision = scan.nextLine();
+            if (userDecision.equalsIgnoreCase("checkout")) {
+                System.out.println("Proceeding to checkout!");
             }
+        }
+        while (userDecision.equalsIgnoreCase("more"));
 
-        } while (userDecision.equalsIgnoreCase("more"));
+        CheckOut readyToLeave = new CheckOut();
+        readyToLeave.promptPayment(scan, shoppingCart);
+        readyToLeave.printReceipt(shoppingCart);
     }
 }

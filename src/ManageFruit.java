@@ -11,9 +11,7 @@ import java.util.Scanner;
  */
 public class ManageFruit {
 
-    public static ArrayList<Fruit> fruitList = new ArrayList<Fruit>();
-
-
+    public static ArrayList<Fruit> fruitList = new ArrayList<>();
 
     public ManageFruit(ArrayList<Fruit> fruitList){ // constructor setting fruit into arrayList
         this.fruitList = fruitList;

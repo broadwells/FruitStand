@@ -10,12 +10,13 @@ import java.util.Scanner;
  */
 public class FruitInventory {
     public static void CreateFile(String fileString) {
-        Path filePath = Paths.get(fileString);//strings above
+        Path filePath = Paths.get(fileString);
 
         if (Files.notExists(filePath)) {
             try {
                 Files.createFile(filePath);
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                 System.out.println("There was an error: " + e);
             }
         }
@@ -35,32 +36,34 @@ public class FruitInventory {
                     System.out.println(line);
                     line = reader.readLine();
                 }
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                 e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-   public static void WriteFile(Scanner scan) {
-
-        System.out.println("Please add fruit:  ");
-        String countryName = scan.nextLine();
-
-        Path filePath = Paths.get("FruitInventory.txt");
-        File file = filePath.toFile();
-
-        try {
-            PrintWriter out = new PrintWriter(new FileOutputStream(file, true));
-            out.println(countryName);
-            out.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-    }
-
+//   public static void WriteFile(Scanner scan) {
+//
+//        System.out.println("Please add fruit:  ");
+//        String countryName = scan.nextLine();
+//
+//        Path filePath = Paths.get("FruitInventory.txt");
+//        File file = filePath.toFile();
+//
+//        try {
+//            PrintWriter out = new PrintWriter(new FileOutputStream(file, true));
+//            out.println(countryName);
+//            out.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+    //FIXME do we need this here?
     public static void printFruitList(ArrayList <Fruit> listFruit){
         int j = 1;  //counter
 
