@@ -33,13 +33,14 @@ public class ManageFruit {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } catch (FileNotFoundException e) { // takes care of FileNotFound exception
+        } catch (FileNotFoundException e) {     //takes care of FileNotFound exception
             e.printStackTrace();
         }
     }
+    //variable name of scanner doesn't have to match first declaration but it has to have Scanner type passed in
+    public static void WriteToFile(ArrayList<Fruit> fruitList) {
 
-    public static void WriteToFile(Scanner s) { // variable name of scanner doesn't have to match first declaration but it has to have Scanner type passed in
-        String productList = s.nextLine();
+        //String productList = s.nextLine();
         Path textPath = Paths.get("src/FruitInventory.txt"); // adding the dir/ before the file name will ensure that writing directly in the file
         File textFile = textPath.toFile();
         try {

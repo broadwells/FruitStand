@@ -37,11 +37,11 @@ public class CheckOut {
         boolean valid;
 
         if (cashAmount.compareTo(totalBill) == 1 || cashAmount.compareTo(totalBill) == 0) {
-            valid = true;
+            valid = false;
         }
         else {
             System.out.println("That is not enough cash, please add more money or try different pay method.");
-            valid = false;
+            valid = true;
         }
         return valid;
     }
@@ -66,15 +66,15 @@ public class CheckOut {
                 System.out.println("Please enter amount you will be paying with: ");
                 double cashMethod = scan.nextDouble();
                 cash = new PaymentMethod(cashMethod);
+                validInput = changeBack.validCashForChange(cash.getCash(), totalAmount);
                 userChange = changeBack.calculateChange(cash.getCash(), totalAmount);
-                changeBack.validCashForChange(cash.getCash(), totalAmount);
                 scan.nextLine();
             }
             else if (payType.equalsIgnoreCase("check")) {
                 System.out.println("Please enter the check number: ");
                 long checkMethod = scan.nextLong();
                 check = new PaymentMethod(checkMethod);
-                check.validCheck(checkMethod);
+                validInput = check.validCheck(checkMethod);
                 scan.nextLine();
             }
             else if (payType.equalsIgnoreCase("credit card")) {

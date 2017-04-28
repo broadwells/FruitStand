@@ -13,8 +13,8 @@ public class PromptUser {
         ArrayList<CartItem> shoppingCart = new ArrayList<>();   //storing cart items from user data
         Products fruit = new Products();    //calling ArrayList from products
 
-        int j = 1;  //counter
         // This loop prints a full list of products with index ArrayList number for Shopper to view and select
+        int j = 1;  //counter
         for (Fruit i : fruit.listFruit()) {
             System.out.println(j + ". " + i);
             j++;
@@ -25,7 +25,6 @@ public class PromptUser {
         do {
             System.out.println("\nPlease choose your fruit: ");
             userInput = scan.nextInt();
-            //Validator.getInt(scan, userInput, 0, 13);
             Fruit fruitChoice = fruit.listFruit().get(userInput - 1);
             System.out.println("How many " + fruitChoice.getName() + "(s) would you like to add to your cart? ");
             int quantity = scan.nextInt();

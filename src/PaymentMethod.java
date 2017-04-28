@@ -1,3 +1,5 @@
+//author: Stephanie Broadwell
+
 import java.util.Scanner;
 
 /**
@@ -45,11 +47,11 @@ public class PaymentMethod {
         String check = String.valueOf(checkNum);
         boolean valid;
         if (check.length() == 12){
-            valid = true;
+            valid = false;
         }
         else {
             System.out.println("Invalid check number. Please try again or select another payment method.");
-            valid = false;
+            valid = true;
         }
         return valid;
     }

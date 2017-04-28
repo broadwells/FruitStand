@@ -1,5 +1,3 @@
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -29,21 +27,13 @@ import java.util.Scanner;
 public class StandApp {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String fileString = "FruitInventory.txt";
-        FruitInventory.CreateFile(fileString);
-        FruitInventory.ReadFile();
-        //FruitInventory.WriteFile(scan);
-
-        // direct to ManagerFruit class instead of FruitInventory Class then all list functions will be in same place
 
         System.out.println("Welcome to Detroit Rock Fruit Stand!\n");
 
         boolean shop = true;
         while (shop) {
             PromptUser.FruitSelection(scan);
-
-            //ManageFruit.ListAllFruit();
-            scan.nextLine();
+            //scan.nextLine();
             System.out.println("Would you like to shop again? ('y'/'n'): ");
             String yesNo = scan.nextLine();
 
@@ -54,8 +44,13 @@ public class StandApp {
         }
 
 
+//        String fileString = "FruitInventory.txt";
+//        FruitInventory.CreateFile(fileString);
+//        FruitInventory.ReadFile();
+        //FruitInventory.WriteFile(scan);
 
-        }
-
+        // direct to ManagerFruit class instead of FruitInventory Class then all list functions will be in same place
     }
+
+}
 
